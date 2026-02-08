@@ -5,6 +5,7 @@ export const createMedicationSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9\-_]+$/, 'Only letters, numbers, - and _ allowed'),
     weight: z.number().positive(),
     code: z.string().regex(/^[A-Z0-9_]+$/, 'Only uppercase letters, numbers and _ allowed'),
+    image: z.string().url('Must be a valid URL').optional(),
   }),
 });
 

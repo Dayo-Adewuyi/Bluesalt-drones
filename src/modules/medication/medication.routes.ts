@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { validate } from '../../shared/middleware/validate';
-import { upload } from '../../shared/middleware/upload';
 import { MedicationController } from './medication.controller';
 import { MedicationRepository } from './medication.repository';
 import { MedicationService } from './medication.service';
@@ -14,7 +13,6 @@ export const medicationRoutes = Router();
 
 medicationRoutes.post(
   '/medications',
-  upload.single('image'),
   validate(createMedicationSchema),
   controller.create,
 );

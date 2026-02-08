@@ -8,7 +8,7 @@ export class MedicationController {
 
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const medication = await this.medicationService.createMedication(req.body, req.file);
+      const medication = await this.medicationService.createMedication(req.body);
       await delCacheByPrefix('medications:list');
       return created(res, medication, 'medication created');
     } catch (error) {

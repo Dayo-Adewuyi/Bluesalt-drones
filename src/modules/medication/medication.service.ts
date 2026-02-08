@@ -1,19 +1,17 @@
 import { ConflictError, NotFoundError } from '../../shared/errors/AppError';
 import { CreateMedicationDTO, IMedication } from './medication.types';
 import { MedicationRepository } from './medication.repository';
-import type { Express } from 'express';
 
 export class MedicationService {
   constructor(private readonly medicationRepository: MedicationRepository) {}
 
-  async createMedication(dto: CreateMedicationDTO, imageFile?: Express.Multer.File): Promise<IMedication> {
+  async createMedication(dto: CreateMedicationDTO): Promise<IMedication> {
     const existing = await this.medicationRepository.findByCode(dto.code);
     if (existing) {
       throw new ConflictError('Medication code already exists', 'MEDICATION_CODE_EXISTS');
     }
 
-    const imagePath = imageFile?.path ?? dto.image ?? null;
-    return this.medicationRepository.create({ ...dto, image: imagePath });
+    return this.medicationRepository.create({ ...dto, image: dto.image ?? null });
   }
 
   async getMedicationById(id: number): Promise<IMedication> {

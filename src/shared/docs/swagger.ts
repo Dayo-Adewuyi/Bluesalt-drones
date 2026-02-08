@@ -284,7 +284,16 @@ export const swaggerSpec = swaggerJSDoc({
             required: true,
             content: {
               'application/json': {
-                example: { name: 'Ibuprofen-200mg', weight: 75, code: 'IBU_200' },
+                schema: {
+                  type: 'object',
+                  required: ['name', 'weight', 'code'],
+                  properties: {
+                    name: { type: 'string', example: 'Ibuprofen-200mg', description: 'Only letters, numbers, - and _ allowed' },
+                    weight: { type: 'number', example: 75, description: 'Medication weight in grams' },
+                    code: { type: 'string', example: 'IBU_200', description: 'Only uppercase letters, numbers and _ allowed' },
+                    image: { type: 'string', format: 'uri', example: 'https://example.com/images/ibuprofen.png', description: 'URL to the medication image (optional)' },
+                  },
+                },
               },
             },
           },
