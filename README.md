@@ -264,8 +264,6 @@ Seed files:
 | `REDIS_TLS` | `false` | Enable TLS for Redis |
 | `QUEUE_PREFIX` | `drone-dispatch` | BullMQ queue prefix |
 | `BATTERY_CHECK_CRON` | `*/1 * * * *` | Battery audit schedule |
-| `UPLOAD_DIR` | `./src/uploads` | Medication image upload directory |
-| `MAX_FILE_SIZE` | `5242880` | Max upload size (bytes) |
 | `LOG_LEVEL` | `info` | Log level |
 | `RATE_LIMIT_WINDOW_MS` | `900000` | Rate limit window (15 min) |
 | `RATE_LIMIT_MAX` | `100` | Max requests per window |

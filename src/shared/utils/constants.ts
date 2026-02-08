@@ -15,10 +15,6 @@ export const DB_PASSWORD = process.env.DB_PASSWORD || 'password';
 
 export const BATTERY_CHECK_CRON = process.env.BATTERY_CHECK_CRON || '*/1 * * * *';
 
-export const UPLOAD_DIR = process.env.UPLOAD_DIR || './src/uploads';
-export const MAX_FILE_SIZE = Number(process.env.MAX_FILE_SIZE || 5 * 1024 * 1024);
-export const ALLOWED_UPLOAD_MIME_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-
 export const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
 
 export const RATE_LIMIT_WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000);

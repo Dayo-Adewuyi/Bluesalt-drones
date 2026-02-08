@@ -14,8 +14,6 @@ describe('constants', () => {
     delete process.env.DB_USER;
     delete process.env.DB_PASSWORD;
     delete process.env.BATTERY_CHECK_CRON;
-    delete process.env.UPLOAD_DIR;
-    delete process.env.MAX_FILE_SIZE;
     delete process.env.LOG_LEVEL;
     delete process.env.RATE_LIMIT_WINDOW_MS;
     delete process.env.RATE_LIMIT_MAX;
@@ -41,8 +39,6 @@ describe('constants', () => {
     process.env.DB_USER = 'user';
     process.env.DB_PASSWORD = 'pass';
     process.env.BATTERY_CHECK_CRON = '*/2 * * * *';
-    process.env.UPLOAD_DIR = './uploads';
-    process.env.MAX_FILE_SIZE = '123';
     process.env.LOG_LEVEL = 'debug';
     process.env.RATE_LIMIT_WINDOW_MS = '1000';
     process.env.RATE_LIMIT_MAX = '5';
