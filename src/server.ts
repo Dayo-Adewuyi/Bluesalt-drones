@@ -3,7 +3,7 @@ import cron from 'node-cron';
 import { app } from './app';
 import { DEFAULT_PORT, BATTERY_CHECK_CRON } from './shared/utils/constants';
 import { logger } from './shared/utils/logger';
-import { syncDatabase } from './shared/database/sync';
+import { syncAndSeed } from './shared/database/sync';
 import { isRedisAvailable } from './shared/redis/connection';
 import './modules/medication/medication.model';
 import './modules/drone/drone.model';
@@ -17,7 +17,7 @@ import { registerBatteryAuditWorker } from './shared/queue/workers';
 
 async function bootstrap(): Promise<void> {
   try {
-    await syncDatabase(false);
+    await syncAndSeed(false);
 
     const auditRepository = new AuditRepository();
     const auditService = new AuditService(auditRepository);
